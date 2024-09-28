@@ -2,6 +2,8 @@
 
 ## Members
 - Mohamed Ashiq
+- Jayanth Chinthala
+- Sakethram Sathish
 
 This project implements neural networks using PyTorch for predicting data based on sensor inputs, along with a web interface for interacting with the model and visualizing data trends. The PyTorch model is converted into the ONNX format for use with ONNX.js to enable inference directly in the browser. In addition to neural networks, Linear Regression models are used for pump frequency and chiller load percentage predictions, while an LSTM model is employed for time series forecasting.
 
