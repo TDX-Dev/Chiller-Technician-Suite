@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/default_theme.css">
+</head>
+<body>
+    <div class="grid-container">
+        <div class="column-container">
+            <div class="tile-container" style="height: 40vh;">
+                <div class="navbar-title">
+                    MENU
+                </div>
+                <div class="navbar-container">
+                    <div class="navbar-item navbar-selected">
+                        <img src="../static/placehold.png" height="20">
+                        <p1>CHILLER DIAGNOSTICS</p1>
+                    </div>
+                    <div class="navbar-item" onclick="redirect('/pump_efficiency');">
+                        <img src="../static/placehold.png" height="20">
+                        <p1>PUMP HERTZ ESTIMATION</p1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile-container" style="height: fit-content;">
+                <div class="navbar-title">
+                    Sensor Data File
+                </div>
+                <button style="height: 50px; font-weight: bold; width: 100%;" onclick="uploadData()">
+                    Upload
+                </button>
+            </div>
+        </div>
+        <div class="tile-container" id="contId" style="width: 100%;">
+                <h1>
+                    Chiller Statistics
+                </h1>
+                <div class="main-widget-container" style="padding:25px;">
+                    <div class="selector-widget">
+                        <label>Month</label>
+                        <input type="number" class="number-input-widget" id="month-selector" max="12" min="1" value="1">
+                    </div>
+                    <div class="selector-widget">
+                        <label>Day</label>
+                        <input type="number" id="day-selector" class="number-input-widget" max="31" min="0" value="1">
+                    </div>
+                    <div class="selector-widget">
+                        <label>Hour</label>
+                        <input type="number" class="number-input-widget" max="23" min="0" value="1">
+                    </div>
+                    <div class="selector-widget">
+                        <label>
+                            Chiller Tonnage (RT)
+                        </label>
+                        <input class="widget-input">
+                    </div>
+                    <div class="selector-widget">
+                        <label>
+                            Total Kilowatts
+                        </label>
+                        <input class="widget-input">
+                    </div>
+                    <div class="selector-widget">
+                        <label>
+                            Total Chiller Power
+                        </label>
+                        <input class="widget-input">
+                    </div>
+                    <div class="selector-widget">
+                        <label>
+                            DeltaCHW
+                        </label>
+                        <input class="widget-input">
+                    </div>
+                    <div class="selector-widget">
+                        <label>
+                            DeltaCDW
+                        </label>
+                        <input class="widget-input">
+                    </div>
+                    <div class="main-widget-container">
+                        <button style="height: 50px; font-weight: bold;" onclick="calculateChillerLoad()">
+                            Calculate
+                        </button>
+                    </div>
+                </div>
+
+                <div class="main-widget-container" style="padding: 40px">
+                    <label>
+                        Predicted Chiller Usage
+                    </label>
+                    <h1 id="chiller-usage">
+                        0%
+                    </h1>
+                </div>
+                
+        </div>
+        
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.40/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+<script src="averages.js" defer></script>
+<script src="../static/helper.js" defer></script>
+<script src="./index.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../static/canvasTools.js"></script>
+
+</html>

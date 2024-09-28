@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiller Data Charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px; /* Reduced the gap between rows */
+        }
+        canvas {
+            width: 100%;  /* Set the width to fit the container */
+            height: 200px; /* Set the height to 100px */
+            max-width: 400px; /* Prevent the canvas from getting too wide */
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Row 1: Chiller Total Power Usage (kWh) -->
+    <div class="chart-container">
+        <canvas id="currentYearChillerPower"></canvas>
+        <canvas id="nextYearChillerPower"></canvas>
+    </div>
+
+    <!-- Row 2: Chiller Efficiency (%) -->
+    <div class="chart-container">
+        <canvas id="currentYearChillerEfficiency"></canvas>
+        <canvas id="nextYearChillerEfficiency"></canvas>
+    </div>
+
+    <!-- Row 3: Chiller Load -->
+    <div class="chart-container">
+        <canvas id="currentYearChillerLoad"></canvas>
+        <canvas id="nextYearChillerLoad"></canvas>
+    </div>
+
+    <!-- Row 4: Pump Frequencies -->
+    <div class="chart-container">
+        <canvas id="currentYearPumpFrequencies"></canvas>
+        <canvas id="nextYearPumpFrequencies"></canvas>
+    </div>
+
+    <script>
+        const currentYearData = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+        const nextYearPredictions = [110, 210, 310, 410, 510, 610, 710, 810, 910, 1010];
+        const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+
+        // Function to generate charts
+        function createChart(ctx, label, data, color) {
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: label,
+                        data: data,
+                        borderColor: color,
+                        borderWidth: 2,
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Chiller Total Power Usage (kWh)
+        createChart(document.getElementById('currentYearChillerPower').getContext('2d'), 'Current Year Total Power Usage', currentYearData, 'blue');
+        createChart(document.getElementById('nextYearChillerPower').getContext('2d'), 'Next Year Total Power Usage', nextYearPredictions, 'green');
+
+        // Chiller Efficiency (%)
+        createChart(document.getElementById('currentYearChillerEfficiency').getContext('2d'), 'Current Year Efficiency', currentYearData.map(d => d / 10), 'blue');
+        createChart(document.getElementById('nextYearChillerEfficiency').getContext('2d'), 'Next Year Efficiency', nextYearPredictions.map(d => d / 10), 'green');
+
+        // Chiller Load
+        createChart(document.getElementById('currentYearChillerLoad').getContext('2d'), 'Current Year Chiller Load', currentYearData.map(d => d / 2), 'blue');
+        createChart(document.getElementById('nextYearChillerLoad').getContext('2d'), 'Next Year Chiller Load', nextYearPredictions.map(d => d / 2), 'green');
+
+        // Pump Frequencies
+        createChart(document.getElementById('currentYearPumpFrequencies').getContext('2d'), 'Current Year Pump Frequencies (Hz)', currentYearData.map(d => d / 15), 'blue');
+        createChart(document.getElementById('nextYearPumpFrequencies').getContext('2d'), 'Next Year Pump Frequencies (Hz)', nextYearPredictions.map(d => d / 15), 'green');
+    </script>
+</body>
+</html>

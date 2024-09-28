@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/default_theme.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="grid-container">
+        <div class="tile-container">
+            <div class="navbar-title">
+                MENU
+            </div>
+            <div class="navbar-container">
+                <div class="navbar-item" onclick="redirect('/data');">
+                    <img src="../static/placehold.png" height="20">
+                    <p1>CHILLER DIAGNOSTICS</p1>
+                </div>
+                <div class="navbar-item navbar-selected" action>
+                    <img src="../static/placehold.png" height="20">
+                    <p1>PUMP HERTZ ESTIMATION</p1>
+                </div>
+            </div>
+        </div>
+        <div class="tile-container" style="width: 100%;">
+            <h1>
+                Pump Optimal Hertz Estimation
+            </h1>
+
+            <div class="main-widget-container">
+                <label>
+                    Chiller Power Total (kW_Tot)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Chiller Load
+                </label>
+                <input class="widget-input">
+                <label>
+                    Gallons Per Minute (GPM)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Chilled Water Supply Temperature
+                </label>
+                <input class="widget-input">
+                <label>
+                    Chilled Water Return Temperature
+                </label>
+                <input class="widget-input">
+                <label>
+                    Condenser Water Supply Temperature (CDHI)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Condenser Water Return Temperature (CDHO)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Wet Bulb Temperature (WBT)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Present Chiller Load (Present CH)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Present Chilled Water Pump Load (Present CHP)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Present Condensed Water Pump Load (Present CDS)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Present Condensed Water Pump Load (Present CDS)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Present Condensed Water Pump Load (Present CT)
+                </label>
+                <input class="widget-input">
+                <label>
+                    Cooling Tower Water Delta T (Delta CT)
+                </label>
+                <input class="widget-input">
+            </div>
+
+            <div class="main-widget-container">
+                <button style="height: 50px; font-weight: bold;" onclick="calculate()">
+                    Calculate
+                </button>
+            </div>
+
+            <div class="main-widget-container" style="justify-content: space-evenly; display: flex; align-items: center; flex-direction: row; ">
+                <div class="pump-info-tile">
+                    PRIMARY PUMP
+                    <h1>
+                        0 Hz
+                    </h1>
+                </div>
+                <div class="pump-info-tile">
+                    SECONDARY PUMP
+                    <h1>
+                        0 Hz
+                    </h1>
+                </div>
+                <div class="pump-info-tile">
+                    CONDENSER WATER PUMP
+                    <h1>
+                        0 Hz
+                    </h1>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+<script src="../static/helper.js"></script>
+<script src="./index.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../static/canvasTools.js"></script>
+
+</html>

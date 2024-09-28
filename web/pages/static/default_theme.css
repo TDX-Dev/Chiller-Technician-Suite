@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: 'Inter';
+}
+
+html {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    font-family: 'Inter';
+    background-color: rgb(228, 228, 228);
+    min-height: 100vh;
+    padding: 5px;
+    margin: 0px;
+    
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container {
+
+}
+
+.navbar-item {
+    padding: 15px;
+    border-radius: 0.5rem;
+    display: flex;
+    column-gap: 10px;
+    user-select: none;
+    min-width: 250px;
+    color: grey;
+}
+
+.navbar-item-disabled {
+    padding: 15px;
+    border-radius: 0.5rem;
+    display: flex;
+    column-gap: 10px;
+    user-select: none;
+    min-width: 250px;
+    color: grey;
+}
+
+.navbar-selected {
+    background-color: #356ed1;
+    color: white;
+}
+
+.navbar-item:hover {
+    background-color: #7fa2df;
+    color:white
+}
+
+.navbar-title {
+    margin-bottom: 5px;
+    user-select: none;
+    font-size: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+
+
+/* OTHER CODE */
+
+.grid-container {
+    padding: 15px;
+    
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: minmax(100px, auto);
+    grid-auto-flow: dense;
+    grid-gap: 10px;
+    height: 100%;
+}
+
+.column-container {
+    
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: minmax(100px, auto);
+    grid-auto-flow: dense;
+    grid-gap: 10px;
+    flex-direction: column;
+    width: fit-content;
+    
+}
+
+.tile-container {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    height: 100%;
+}
+
+
+/* .grid-container .tile-container:nth-child(3) {
+    width: 100%;
+} */
+
+h1 {
+    padding: 10px;
+}
+
+.main-widget-container {
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.widget-input {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+    max-width: 150px;
+}
+
+
+.block-ui {
+    z-index: 99;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+.selector-widget {
+    display: flex;
+    justify-content: space-between;
+}
+
+.number-input-widget {
+    padding: 5px;
+    max-width: 50px;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+}

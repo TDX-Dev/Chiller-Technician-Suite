@@ -1,0 +1,17 @@
+
+label {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.pump-info-tile {
+    background-color: rgb(235, 234, 234);
+    padding: 20px;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    margin: 20px;
+}

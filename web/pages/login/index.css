@@ -1,0 +1,130 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6a5acd, #00bfff); /* Blue violet gradient */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Adding rotating animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(106,90,205,0.6), rgba(0,191,255,0.6));
+    animation: rotateBg 20s linear infinite; /* Smooth rotation */
+    z-index: -1;
+}
+
+/* Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent background */
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    animation: fadeIn 0.5s ease-in-out; /* Fade in effect */
+}
+
+/* Heading Style */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: black; /* Heading color changed to black */
+}
+
+/* Form Styles */
+label {
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold; /* Bold labels */
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #6a5acd; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #6a5acd; /* Button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s; /* Add transform on hover */
+    margin-top: 15px; /* Added margin to create space between password and button */
+}
+
+.btn:hover {
+    background-color: #00bfff; /* Lighter on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    user-select: none;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotating background animation */
+@keyframes rotateBg {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

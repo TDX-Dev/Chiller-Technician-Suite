@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiller Plant Diagnostics</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="fade-in" style="user-select: none;">Chiller Plant Diagnostics</h1> <!-- Changed heading to Chiller Plant Diagnostics -->
+      <p class="slide-in" style="user-select: none;">Access employee account to continue</p> <!-- Updated text -->
+    </header>
+    <form action="/def/" method="get">
+        <label>Employee Identification</label>
+        <input onkeyup="limit(this, 6)">
+
+        <label>Password</label>
+        <input type="password">
+
+        <button class="btn">Submit</button>
+    </form>
+  </div>
+</body>
+
+<script>
+    function limit(element, max_chars)
+    {
+        if(element.value.length > max_chars) {
+            element.value = element.value.substr(0, max_chars);
+        }
+    }
+
+    function hashStr(str) {
+        var hash = 0, i, chr;
+        if (str.length === 0) return hash;
+        for (i = 0; i < str.length; i++) {
+            chr = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+    }
+</script>
+
+</html>
